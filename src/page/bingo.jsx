@@ -8,8 +8,7 @@ export default function Bingo() {
 
   //check for doubles in array - if not ad statement to array
   const handleClick = (id) => {
-    if (isClicked.includes(id)) {
-    } else {
+    if (!isClicked.includes(id)) {
       setIsClicked([...isClicked, id])
     }
   }
@@ -39,8 +38,8 @@ const Container = styled.div`
 const Item = styled.button`
   display: flex;
   align-items: center;
-  background-color: ;
-  background-color: var(--disabled-txt-color);
+  background-color: ();
+  /* background-color: var(--disabled-txt-color); */
   border: 1px solid var(--border-seperator);
   justify-content: center;
 `
