@@ -88,6 +88,7 @@ const Container = styled.div`
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   height: 75vh;
   margin: 15px 0 15px 0;
+  padding: 5px;
   width: 100vw;
 `
 
@@ -98,4 +99,5 @@ const Item = styled.button`
   border: 1px solid var(--border-seperator);
   font-size: 0.7rem;
   justify-content: center;
+  padding: 2px;
 `
