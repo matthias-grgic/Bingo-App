@@ -37,7 +37,7 @@ export default function Bingo() {
 }
 
 const ButtonReset = styled.button`
-  background-color: rgb(255, 255, 255, 0.5);
+  background-color: rgb(255, 255, 255, 0);
   border: 1px solid #222222;
   border-radius: 8px;
   box-sizing: border-box;
