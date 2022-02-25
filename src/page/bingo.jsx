@@ -13,12 +13,22 @@ export default function Bingo() {
     }
   }
 
+  //change color is statement is clicked
+  const styleIfClicked = (id) => {
+    if (isClicked.includes(id)) {
+      return 'green'
+    } else {
+      return 'yellow'
+    }
+  }
+
   return (
     <Container>
       {statements.map((item, index) => {
         return (
-          <Item id={item.id} key={index} onClick={() => handleClick(item.id)}>
+          <Item bg={styleIfClicked(item.id)} id={item.id} key={index} onClick={() => handleClick(item.id)}>
             {item.statement}
+            {console.log(styleIfClicked(item.id))}
           </Item>
         )
       })}
@@ -38,8 +48,7 @@ const Container = styled.div`
 const Item = styled.button`
   display: flex;
   align-items: center;
-  background-color: ();
-  /* background-color: var(--disabled-txt-color); */
+  background-color: ${(props) => (props.bg === 'green' ? 'green' : 'rgb(248,248,248)')};
   border: 1px solid var(--border-seperator);
   justify-content: center;
 `
