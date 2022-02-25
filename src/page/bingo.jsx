@@ -20,6 +20,8 @@ export default function Bingo() {
     }
   }
 
+  //randomize 1-12 und 14-25
+
   return (
     <>
       <Container>
@@ -31,7 +33,7 @@ export default function Bingo() {
           )
         })}
       </Container>
-      <ButtonReset onClick={() => setIsClicked([])}>RESET</ButtonReset>
+      <ButtonReset onClick={() => setIsClicked(['13'])}>RESET</ButtonReset>
     </>
   )
 }
@@ -65,13 +67,13 @@ const ButtonReset = styled.button`
   }
 
   :active {
-    background-color: #f7f7f7;
+    background-color: rgb(255, 255, 255, 0.5);
     border-color: #000000;
     transform: scale(0.96);
   }
 
   :disabled {
-    border-color: #dddddd;
+    background-color: rgb(255, 255, 255, 0.5);
     color: #dddddd;
     cursor: not-allowed;
     opacity: 1;
@@ -84,8 +86,8 @@ const Container = styled.div`
   align-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  height: 70vh;
-  margin: 20px 20px;
+  height: 75vh;
+  margin: 15px 0 15px 0;
   width: 100vw;
 `
 
@@ -94,5 +96,6 @@ const Item = styled.button`
   align-items: center;
   background-color: ${(props) => (props.bg === 'green' ? 'rgb(111, 247, 170)' : 'rgb(248,248,248,0.9)')};
   border: 1px solid var(--border-seperator);
+  font-size: 0.7rem;
   justify-content: center;
 `
