@@ -11,7 +11,7 @@ export const statements = [
   { id: '10', statement: '10' },
   { id: '11', statement: '11' },
   { id: '12', statement: '12' },
-  { id: '13', statement: 'FREE' },
+  { id: '13', statement: 'BINGO' },
   { id: '14', statement: '14' },
   { id: '15', statement: '15' },
   { id: '16', statement: '16' },

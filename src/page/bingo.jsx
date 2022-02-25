@@ -3,7 +3,7 @@ import { statements } from '../lib/statements'
 import { useState } from 'react'
 
 export default function Bingo() {
-  const [isClicked, setIsClicked] = useState([])
+  const [isClicked, setIsClicked] = useState(['13'])
   console.log(isClicked)
 
   //check for doubles in array - if not ad statement to array
@@ -17,8 +17,6 @@ export default function Bingo() {
   const styleIfClicked = (id) => {
     if (isClicked.includes(id)) {
       return 'green'
-    } else {
-      return 'yellow'
     }
   }
 
@@ -38,6 +36,7 @@ export default function Bingo() {
 
 const Container = styled.div`
   display: grid;
+  background-color: transparent;
   align-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -48,7 +47,7 @@ const Container = styled.div`
 const Item = styled.button`
   display: flex;
   align-items: center;
-  background-color: ${(props) => (props.bg === 'green' ? 'green' : 'rgb(248,248,248)')};
+  background-color: ${(props) => (props.bg === 'green' ? 'rgb(111, 247, 170)' : 'rgb(248,248,248,0.9)')};
   border: 1px solid var(--border-seperator);
   justify-content: center;
 `

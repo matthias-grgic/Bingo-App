@@ -20,6 +20,7 @@ a {
         
     }
 h1, h2, h3 ,h4 ,h5, h6 {
+  background-color: transparent;
   color: var(--main-txt-color);
   font-family: 'Poppins', sans-serif; 
 }
