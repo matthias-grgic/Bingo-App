@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import Bingo from './page/bingo'
-import Hello from './page/hello'
+import Bingo from './page/Bingo'
+import Hello from './page/Hello'
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -9,7 +9,15 @@ function App() {
     <MainStyled>
       <Routes>
         <Route path='/' element={<Hello />} />
-        <Route path='/bingo' element={<Bingo />} />
+        <Route
+          path='/bingo'
+          element={
+            <>
+              <Hello />
+              <Bingo />
+            </>
+          }
+        />
       </Routes>
     </MainStyled>
   )

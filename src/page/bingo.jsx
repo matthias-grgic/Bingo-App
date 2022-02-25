@@ -5,11 +5,7 @@ export default function Bingo() {
   return (
     <Container>
       {statements.map((item, index) => {
-        return (
-          <Item key={index}>
-            <Text>{item.statement}</Text>
-          </Item>
-        )
+        return <Item key={index}>{item.statement}</Item>
       })}
     </Container>
   )
@@ -17,22 +13,18 @@ export default function Bingo() {
 
 const Container = styled.div`
   display: grid;
+  align-content: center;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  height: 30rem;
-  width: 20rem;
-  justify-content: center;
-  align-content: center;
+  width: 100vw;
+  height: 70vh;
 `
 
 const Item = styled.div`
-  background-color: var(--disabled-txt-color);
-  width: auto;
-  height: auto;
-`
-
-const Text = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: var(--disabled-txt-color);
+  border: 1px solid var(--border-seperator);
+  /* box-shadow: var(--main-box-shadow); */
+  justify-content: center;
 `
