@@ -2,7 +2,7 @@ import { useLottie } from 'lottie-react'
 
 const style = {
   width: '150%',
-  height: '100%',
+  height: '140%',
   position: 'fixed',
   opacity: 0.9,
   zindex: -1,

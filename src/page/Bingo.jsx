@@ -99,9 +99,10 @@ const Container = styled.div`
   }
 `
 
-const Item = styled.button`
+const Item = styled.div`
   display: flex;
   align-items: center;
+  color: var(--main-txt-color);
   background-color: ${(props) => (props.bg === 'green' ? 'rgb(111, 247, 170)' : 'rgb(248,248,248,0.9)')};
   border: 1px solid var(--border-seperator);
   font-size: clamp(0.7rem, 1.5vw, 1.2rem);
