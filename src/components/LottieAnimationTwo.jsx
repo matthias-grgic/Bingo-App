@@ -1,18 +1,16 @@
 import { useLottie } from 'lottie-react'
 
 const style = {
-  backgroundcolor: 'none',
-  width: '80%',
-  height: '20rem',
+  width: '150%',
+  height: '100%',
+  position: 'fixed',
+  opacity: 0.9,
   zindex: -1,
-  // position: 'fixed',
-  margin: '0',
-  padding: '0',
 }
 
 const LottieAnimationTwo = () => {
   const options = {
-    path: 'https://assets4.lottiefiles.com/packages/lf20_iombyzfq.json',
+    path: 'https://assets2.lottiefiles.com/packages/lf20_iombyzfq.json',
     loop: true,
     autoplay: true,
   }

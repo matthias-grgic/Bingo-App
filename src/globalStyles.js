@@ -4,7 +4,6 @@ const GlobalStyle = createGlobalStyle`
 :root{
   --main-txt-color: #313131;
   --secondary-txt-color: #919191;
-  --main-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   --border-seperator: #e4e4e4;
 }
   * {

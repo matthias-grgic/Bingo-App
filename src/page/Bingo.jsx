@@ -21,32 +21,20 @@ export default function Bingo() {
   const bingoEleven = [0, 6, 12, 18, 24]
   const bingoTwelve = [4, 8, 12, 16, 20]
 
-  // const bingos = [
-  //   [0, 1, 2, 3, 4],
-  //   [5, 6, 7, 8, 9],
-  //   [10, 11, 12, 13, 14],
-  //   [15, 16, 17, 18, 19],
-  //   [20, 21, 22, 23, 24],
-  //   [0, 5, 10, 15, 20],
-  //   [1, 6, 11, 16, 21],
-  //   [2, 7, 12, 17, 22],
-  //   [3, 8, 13, 18, 23],
-  //   [4, 9, 14, 19, 24],
-  //   [0, 6, 12, 18, 24],
-  //   [4, 8, 12, 16, 20],
-  // ]
-
-  //check doubles in array - if not ad statement to array
+  //check for doubles in array
   const handleClick = (id) => {
     if (!isClicked.includes(id)) setIsClicked([...isClicked, id])
   }
 
-  //change color if statement is clicked
+  //Reset Button
+  const handleReset = () => setIsClicked([12]) + setIsBingo(false)
+
+  //change color if clicked
   const styleIfClicked = (id) => {
     if (isClicked.includes(id)) return 'green'
   }
 
-  //check if its Bingo and update useState // working but too much repeat
+  //check if Bingo and setUseState
   const checker = (arr, target) => target.every((item) => arr.includes(item))
   useEffect(() => {
     if (checker(isClicked, bingoOne) === true) {
@@ -75,18 +63,6 @@ export default function Bingo() {
       setIsBingo(true)
     }
   })
-
-  // Try to reduce Code with for loop
-  //
-  // useEffect(() => {
-  //   for (let i = 0; i < bingos.length; i++) {
-  //     for (let j = 0; j < bingos[i].length; j++) {
-  //       return console.log(isClicked.every(() => [j].includes()))
-  //     }
-  //   }
-  // })
-
-  const handleReset = () => setIsClicked([12]) + setIsBingo(false)
 
   return (
     <>
@@ -118,6 +94,9 @@ const Container = styled.div`
   margin: 15px 0 15px 0;
   padding: 5px;
   width: 100vw;
+  @media (min-width: 1400px) {
+    padding: 0 15rem 0 15rem;
+  }
 `
 
 const Item = styled.button`
@@ -125,7 +104,7 @@ const Item = styled.button`
   align-items: center;
   background-color: ${(props) => (props.bg === 'green' ? 'rgb(111, 247, 170)' : 'rgb(248,248,248,0.9)')};
   border: 1px solid var(--border-seperator);
-  font-size: clamp(0.7rem, 1.2vw, 1.5rem);
+  font-size: clamp(0.7rem, 1.5vw, 1.2rem);
   justify-content: center;
   outline: none;
   text-decoration: none;
@@ -141,3 +120,27 @@ const LottieContainer = styled.div`
   width: 100%;
   height: 100%;
 `
+// Try to reduce Code with for loop
+//
+// useEffect(() => {
+//   for (let i = 0; i < bingos.length; i++) {
+//     for (let j = 0; j < bingos[i].length; j++) {
+//       return console.log(isClicked.every(() => [j].includes()))
+//     }
+//   }
+// })
+//
+// const bingos = [
+//   [0, 1, 2, 3, 4],
+//   [5, 6, 7, 8, 9],
+//   [10, 11, 12, 13, 14],
+//   [15, 16, 17, 18, 19],
+//   [20, 21, 22, 23, 24],
+//   [0, 5, 10, 15, 20],
+//   [1, 6, 11, 16, 21],
+//   [2, 7, 12, 17, 22],
+//   [3, 8, 13, 18, 23],
+//   [4, 9, 14, 19, 24],
+//   [0, 6, 12, 18, 24],
+//   [4, 8, 12, 16, 20],
+// ]

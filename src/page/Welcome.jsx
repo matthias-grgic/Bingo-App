@@ -16,6 +16,7 @@ export default function Welcome() {
 
 const WelcomeSection = styled(Link)`
   display: flex;
+  background: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
