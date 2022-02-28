@@ -1,6 +1,6 @@
 # Bingo-App
 
-- `React, React Router, styled-components, ESLint, Lottie, OpenWeather`
+- `React, React Router, styled-components, ESLint, Lottie`
 
 
 
