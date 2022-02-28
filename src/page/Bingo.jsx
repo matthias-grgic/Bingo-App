@@ -129,6 +129,7 @@ const Item = styled.button`
   justify-content: center;
   outline: none;
   text-decoration: none;
+  user-select: none;
 `
 
 const LottieContainer = styled.div`
