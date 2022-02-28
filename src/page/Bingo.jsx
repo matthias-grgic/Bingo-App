@@ -108,6 +108,7 @@ const Item = styled.div`
   font-size: clamp(0.7rem, 1.5vw, 1.2rem);
   justify-content: center;
   outline: none;
+  text-align: center;
   text-decoration: none;
   user-select: none;
 `
