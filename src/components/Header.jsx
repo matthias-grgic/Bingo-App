@@ -1,16 +1,20 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 export default function Hello() {
   return (
     <>
-      <StyledLink to='/bingo'>
+      <StyledLink>
         <h1>BINGO!</h1>
       </StyledLink>
     </>
   )
 }
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.div`
   background-color: transparent;
+  font-size: clamp(3.5rem, 3vw, 3rem);
+  z-index: 1;
+  @media (min-width: 810px) {
+    padding: 0 16rem 0 16rem;
+  }
 `
