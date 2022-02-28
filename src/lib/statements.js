@@ -1,7 +1,7 @@
 const partOne = [
   { statement: 'Klimapolitik muss harte Bretter bohren' },
   { statement: 'Sehen Klimaschützer das Glas eher voll als leer' },
-  { statement: 'Das heißt aber nicht, dass "Bonn" unwichtig wäre, ganz im Gegenteil' },
+  { statement: 'Das heißt aber nicht, dass "Paris" unwichtig wäre' },
   { statement: 'Die eigentliche Arbeit hat jetzt erst begonnen' },
   { statement: 'Muss ein klarer Fahrplant entwickelt werden' },
   { statement: 'Bricht eine Lanze für den Klimaschutz' },

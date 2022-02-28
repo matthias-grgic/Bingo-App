@@ -67,12 +67,38 @@ export default function Bingo() {
   return (
     <>
       <Container>
-        {shuffledArray.map((item, index) => {
-          return (
-            <Item bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
-              {item.statement}
-            </Item>
-          )
+        {shuffledArray.map((item, index, arr) => {
+          if (arr.length - 1 === index) {
+            return (
+              <Item style={{ borderBottomRightRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
+                {item.statement}
+              </Item>
+            )
+          } else if (arr.length - 5 === index) {
+            return (
+              <Item style={{ borderBottomLeftRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
+                {item.statement}
+              </Item>
+            )
+          } else if (arr.length - 25 === index) {
+            return (
+              <Item style={{ borderTopLeftRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
+                {item.statement}
+              </Item>
+            )
+          } else if (arr.length - 21 === index) {
+            return (
+              <Item style={{ borderTopRightRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
+                {item.statement}
+              </Item>
+            )
+          } else {
+            return (
+              <Item bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
+                {item.statement}
+              </Item>
+            )
+          }
         })}
       </Container>
       <LottieContainer status={isBingo} onClick={() => setIsClicked([12]) + setIsBingo(false)}>
@@ -92,7 +118,7 @@ const Container = styled.div`
   height: 70vh;
   justify-content: center;
   margin: 15px 0 15px 0;
-  padding: 5px;
+  padding: 10px;
   width: 100vw;
   @media (min-width: 1400px) {
     padding: 0 15rem 0 15rem;
@@ -102,15 +128,16 @@ const Container = styled.div`
 const Item = styled.div`
   display: flex;
   align-items: center;
+  background: ${(props) => (props.bg === 'green' ? 'transparent' : 'white')};
   color: var(--main-txt-color);
-  background-color: ${(props) => (props.bg === 'green' ? 'rgb(111, 247, 170)' : 'rgb(248,248,248,0.9)')};
-  border: 1px solid var(--border-seperator);
+  cursor: pointer;
+  border: 1px solid rgb(167, 167, 167, 0.2);
   font-size: clamp(0.7rem, 1.5vw, 1.2rem);
   justify-content: center;
-  outline: none;
   text-align: center;
-  text-decoration: none;
-  user-select: none;
+  :hover {
+    background: transparent;
+  }
 `
 
 const LottieContainer = styled.div`
