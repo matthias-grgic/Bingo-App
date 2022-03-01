@@ -22,10 +22,10 @@ const partTwo = [
   { statement: 'Dabei steckt der Teufel im Detail' },
   { statement: 'Angekommen in den Mühen der Ebene' },
   { statement: 'Die Lage ist ernst, aber nicht ohne Hoffnung' },
-  { statement: 'Dabei steckt der Teufel im Detail' },
-  { statement: 'Dabei steckt der Teufel im Detail' },
-  { statement: 'Dabei steckt der Teufel im Detail' },
-  { statement: 'Dabei steckt der Teufel im Detail' },
+  { statement: 'Wir gehenernsten Veränderungen unseres Planeten entgegen' },
+  { statement: 'Ein Weiter-So gibt es nicht' },
+  { statement: 'Toll, dass sich die Jugend so für den Klimaschutz einsetzt' },
+  { statement: 'CO2-Kompensation fürs Fliegen' },
 ]
 
 const bingoStatement = [{ id: '13', statement: 'BINGO' }]
