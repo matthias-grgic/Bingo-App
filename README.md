@@ -1,6 +1,6 @@
 # Bingo-App
 
-Classic Bingo App - lets pay!
+Classic Bingo App - let's play! (Climate-Edition)
 
 # Installation
 
