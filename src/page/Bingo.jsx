@@ -5,21 +5,34 @@ import LottieAnimation from '../components/LottieAnimation'
 import ButtonReseter from '../components/ButtonReset'
 
 export default function Bingo() {
+  const [howManyBingos, setHowManyBingos] = useState(0)
   const [isClicked, setIsClicked] = useState([12])
-  const [isBingo, setIsBingo] = useState(false)
+  const [allBingos, setAllBingos] = useState([
+    [0, 1, 2, 3, 4],
+    [5, 6, 7, 8, 9],
+    [10, 11, 12, 13, 14],
+    [15, 16, 17, 18, 19],
+    [20, 21, 22, 23, 24],
+    [0, 5, 10, 15, 20],
+    [1, 6, 11, 16, 21],
+    [2, 7, 12, 17, 22],
+    [3, 8, 13, 18, 23],
+    [4, 9, 14, 19, 24],
+    [0, 6, 12, 18, 24],
+    [4, 8, 12, 16, 20],
+  ])
 
-  const bingoOne = [0, 1, 2, 3, 4]
-  const bingoTwo = [5, 6, 7, 8, 9]
-  const bingoThree = [10, 11, 12, 13, 14]
-  const bingoFour = [15, 16, 17, 18, 19]
-  const bingoFive = [20, 21, 22, 23, 24]
-  const bingoSix = [0, 5, 10, 15, 20]
-  const bingoSeven = [1, 6, 11, 16, 21]
-  const bingoEight = [2, 7, 12, 17, 22]
-  const bingoNine = [3, 8, 13, 18, 23]
-  const bingoTen = [4, 9, 14, 19, 24]
-  const bingoEleven = [0, 6, 12, 18, 24]
-  const bingoTwelve = [4, 8, 12, 16, 20]
+  let [var1, setVar1] = useState(true)
+  let [var2, setVar2] = useState(true)
+  let [var3, setVar3] = useState(true)
+  let [var4, setVar4] = useState(true)
+  let [var5, setVar5] = useState(true)
+  let [var6, setVar6] = useState(true)
+  let [var7, setVar7] = useState(true)
+  let [var8, setVar8] = useState(true)
+  let [var9, setVar9] = useState(true)
+  let [var10, setVar10] = useState(true)
+  let [var11, setVar11] = useState(true)
 
   //check for doubles in array
   const handleClick = (id) => {
@@ -34,35 +47,44 @@ export default function Bingo() {
     if (isClicked.includes(id)) return 'green'
   }
 
-  //check if Bingo and setUseState
+  // if Bingo success, remove variant from Bingo Array
+  const remover = () => {
+    allBingos.filter((word) => word.bingo.includes(isClicked))
+  }
+
+  // check if Bingo and setUseState
   const checker = (arr, target) => target.every((item) => arr.includes(item))
   useEffect(() => {
-    if (checker(isClicked, bingoOne) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoTwo) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoThree) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoFour) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoFive) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoSix) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoSeven) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoEight) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoNine) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoTen) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoEleven) === true) {
-      setIsBingo(true)
-    } else if (checker(isClicked, bingoTwelve) === true) {
-      setIsBingo(true)
+    if (checker(isClicked, [0, 1, 2, 3, 4]) === true && var1) {
+      setHowManyBingos(howManyBingos + 1) + setVar1(false)
+    } else if (checker(isClicked, [5, 6, 7, 8, 9]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar2(false)
+    } else if (checker(isClicked, [10, 11, 12, 13, 14]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar3(false)
+    } else if (checker(isClicked, [15, 16, 17, 18, 19]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar4(false)
+    } else if (checker(isClicked, [20, 21, 22, 23, 24]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar5(false)
+    } else if (checker(isClicked, [0, 5, 10, 15, 20]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar6(false)
+    } else if (checker(isClicked, [1, 6, 11, 16, 21]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar7(false)
+    } else if (checker(isClicked, [2, 7, 12, 17, 22]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar8(false)
+    } else if (checker(isClicked, [3, 8, 13, 18, 23]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar9(false)
+    } else if (checker(isClicked, [4, 9, 14, 19, 24]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar10(false)
+    } else if (checker(isClicked, [0, 6, 12, 18, 24]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar11(false)
+    } else if (checker(isClicked, [4, 8, 12, 16, 20]) === true) {
+      setHowManyBingos(howManyBingos + 1) + setVar12(false)
     }
-  })
+  }, [isClicked])
+
+  console.log(howManyBingos)
+  console.log(isClicked)
+  console.log(var1)
 
   return (
     <>
@@ -101,7 +123,7 @@ export default function Bingo() {
           }
         })}
       </Container>
-      <LottieContainer status={isBingo} onClick={() => setIsClicked([12]) + setIsBingo(false)}>
+      <LottieContainer status={howManyBingos} onClick={() => setHowManyBingos(howManyBingos - 1)}>
         <LottieAnimation />
       </LottieContainer>
       <ButtonReseter handleReset={handleReset} />
@@ -141,7 +163,7 @@ const Item = styled.div`
 `
 
 const LottieContainer = styled.div`
-  display: ${(props) => (props.status === true ? 'flex' : 'none')};
+  display: ${(props) => (props.status % 2 != 0 ? 'flex' : 'none')};
   align-items: center;
   background-color: transparent;
   justify-content: center;
