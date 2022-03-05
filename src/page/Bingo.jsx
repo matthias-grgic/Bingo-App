@@ -7,7 +7,7 @@ import ButtonReseter from '../components/ButtonReset'
 export default function Bingo() {
   const [howManyBingos, setHowManyBingos] = useState(0)
   const [isClicked, setIsClicked] = useState([12])
-  const [allBingos, setAllBingos] = useState([
+  const allBingos = [
     [0, 1, 2, 3, 4],
     [5, 6, 7, 8, 9],
     [10, 11, 12, 13, 14],
@@ -20,8 +20,9 @@ export default function Bingo() {
     [4, 9, 14, 19, 24],
     [0, 6, 12, 18, 24],
     [4, 8, 12, 16, 20],
-  ])
+  ]
 
+  //let the loop run only once if goal is achieved
   let [var1, setVar1] = useState(true)
   let [var2, setVar2] = useState(true)
   let [var3, setVar3] = useState(true)
@@ -33,6 +34,7 @@ export default function Bingo() {
   let [var9, setVar9] = useState(true)
   let [var10, setVar10] = useState(true)
   let [var11, setVar11] = useState(true)
+  let [var12, setVar12] = useState(true)
 
   //check for doubles in array
   const handleClick = (id) => {
@@ -40,51 +42,46 @@ export default function Bingo() {
   }
 
   //Reset Button
-  const handleReset = () => setIsClicked([12]) + setIsBingo(false)
+  const resetIfElseVariables = () =>
+    setVar1(true) + setVar2(true) + setVar3(true) + setVar4(true) + setVar5(true) + setVar6(true) + setVar7(true) + setVar8(true) + setVar9(true) + setVar10(true) + setVar11(true) + setVar12(true)
+
+  const handleReset = () => setIsClicked([12]) + resetIfElseVariables()
 
   //change color if clicked
   const styleIfClicked = (id) => {
     if (isClicked.includes(id)) return 'green'
   }
 
-  // if Bingo success, remove variant from Bingo Array
-  const remover = () => {
-    allBingos.filter((word) => word.bingo.includes(isClicked))
-  }
-
-  // check if Bingo and setUseState
+  //check if Bingo is achieved and setState
   const checker = (arr, target) => target.every((item) => arr.includes(item))
+
   useEffect(() => {
-    if (checker(isClicked, [0, 1, 2, 3, 4]) === true && var1) {
+    if (checker(isClicked, allBingos[0]) === true && var1) {
       setHowManyBingos(howManyBingos + 1) + setVar1(false)
-    } else if (checker(isClicked, [5, 6, 7, 8, 9]) === true) {
+    } else if (checker(isClicked, allBingos[1]) === true && var2) {
       setHowManyBingos(howManyBingos + 1) + setVar2(false)
-    } else if (checker(isClicked, [10, 11, 12, 13, 14]) === true) {
+    } else if (checker(isClicked, allBingos[2]) === true && var3) {
       setHowManyBingos(howManyBingos + 1) + setVar3(false)
-    } else if (checker(isClicked, [15, 16, 17, 18, 19]) === true) {
+    } else if (checker(isClicked, allBingos[3]) === true && var4) {
       setHowManyBingos(howManyBingos + 1) + setVar4(false)
-    } else if (checker(isClicked, [20, 21, 22, 23, 24]) === true) {
+    } else if (checker(isClicked, allBingos[4]) === true && var5) {
       setHowManyBingos(howManyBingos + 1) + setVar5(false)
-    } else if (checker(isClicked, [0, 5, 10, 15, 20]) === true) {
+    } else if (checker(isClicked, allBingos[5]) === true && var6) {
       setHowManyBingos(howManyBingos + 1) + setVar6(false)
-    } else if (checker(isClicked, [1, 6, 11, 16, 21]) === true) {
+    } else if (checker(isClicked, allBingos[6]) === true && var7) {
       setHowManyBingos(howManyBingos + 1) + setVar7(false)
-    } else if (checker(isClicked, [2, 7, 12, 17, 22]) === true) {
+    } else if (checker(isClicked, allBingos[7]) === true && var8) {
       setHowManyBingos(howManyBingos + 1) + setVar8(false)
-    } else if (checker(isClicked, [3, 8, 13, 18, 23]) === true) {
+    } else if (checker(isClicked, allBingos[8]) === true && var9) {
       setHowManyBingos(howManyBingos + 1) + setVar9(false)
-    } else if (checker(isClicked, [4, 9, 14, 19, 24]) === true) {
+    } else if (checker(isClicked, allBingos[9]) === true && var10) {
       setHowManyBingos(howManyBingos + 1) + setVar10(false)
-    } else if (checker(isClicked, [0, 6, 12, 18, 24]) === true) {
+    } else if (checker(isClicked, allBingos[10]) === true && var11) {
       setHowManyBingos(howManyBingos + 1) + setVar11(false)
-    } else if (checker(isClicked, [4, 8, 12, 16, 20]) === true) {
+    } else if (checker(isClicked, allBingos[11]) === true && var12) {
       setHowManyBingos(howManyBingos + 1) + setVar12(false)
     }
   }, [isClicked])
-
-  console.log(howManyBingos)
-  console.log(isClicked)
-  console.log(var1)
 
   return (
     <>
