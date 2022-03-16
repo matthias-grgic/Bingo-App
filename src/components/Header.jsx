@@ -10,7 +10,7 @@ export default function Hello() {
   )
 }
 
-const StyledLink = styled.div`
+const StyledLink = styled.header`
   background-color: transparent;
   font-size: clamp(3rem, 3vw, 3.5rem);
   z-index: 1;

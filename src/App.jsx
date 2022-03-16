@@ -8,17 +8,10 @@ import { Route, Routes } from 'react-router-dom'
 function App() {
   return (
     <MainStyled>
+      <Header />
       <Routes>
         <Route path='/' element={<Welcome />} />
-        <Route
-          path='/bingo'
-          element={
-            <>
-              <Header />
-              <Bingo />
-            </>
-          }
-        />
+        <Route path='/bingo' element={<Bingo />} />
       </Routes>
     </MainStyled>
   )
@@ -26,7 +19,7 @@ function App() {
 
 export default App
 
-const MainStyled = styled.div`
+const MainStyled = styled.main`
   display: flex;
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   align-items: center;

@@ -12,7 +12,7 @@ export default function Introduction() {
   )
 }
 
-const TextStyled = styled.div`
+const TextStyled = styled.article`
   display: flex;
   align-items: center;
   background-color: transparent;
