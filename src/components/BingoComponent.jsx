@@ -24,19 +24,8 @@ export default function BingoComponent() {
     [4, 8, 12, 16, 20],
   ]
 
-  //let the loop run only once if goal is achieved
-  let [var0, setVar0] = useState(true)
-  let [var1, setVar1] = useState(true)
-  let [var2, setVar2] = useState(true)
-  let [var3, setVar3] = useState(true)
-  let [var4, setVar4] = useState(true)
-  let [var5, setVar5] = useState(true)
-  let [var6, setVar6] = useState(true)
-  let [var7, setVar7] = useState(true)
-  let [var8, setVar8] = useState(true)
-  let [var9, setVar9] = useState(true)
-  let [var10, setVar10] = useState(true)
-  let [var11, setVar11] = useState(true)
+  //let the loop run only once if bingo is achieved
+  const [allVar, setAllVar] = useState({ var0: true, var1: true, var2: true, var3: true, var4: true, var5: true, var6: true, var7: true, var8: true, var9: true, var10: true, var11: true })
 
   //check for doubles in array
   const handleClick = (id) => {
@@ -44,10 +33,8 @@ export default function BingoComponent() {
   }
 
   //Reset Button
-  const resetIfElseVariables = () =>
-    setVar0(true) + setVar1(true) + setVar2(true) + setVar3(true) + setVar4(true) + setVar5(true) + setVar6(true) + setVar7(true) + setVar8(true) + setVar9(true) + setVar10(true) + setVar11(true)
-
-  const handleReset = () => setIsClicked([12]) + resetIfElseVariables()
+  const resetVariables = () => setAllVar({ ...Object.keys(allVar).reduce((reduced, key) => ({ ...reduced, [key]: true }), {}) })
+  const handleReset = () => setIsClicked([12]) + resetVariables()
 
   //change color if clicked
   const styleIfClicked = (id) => {
@@ -58,30 +45,30 @@ export default function BingoComponent() {
   const checker = (arr, target) => target.every((item) => arr.includes(item))
 
   useEffect(() => {
-    if (checker(isClicked, allBingos[0]) === true && var0) {
-      setHowManyBingos(howManyBingos + 1) + setVar0(false)
-    } else if (checker(isClicked, allBingos[1]) === true && var1) {
-      setHowManyBingos(howManyBingos + 1) + setVar1(false)
-    } else if (checker(isClicked, allBingos[2]) === true && var2) {
-      setHowManyBingos(howManyBingos + 1) + setVar2(false)
-    } else if (checker(isClicked, allBingos[3]) === true && var3) {
-      setHowManyBingos(howManyBingos + 1) + setVar3(false)
-    } else if (checker(isClicked, allBingos[4]) === true && var4) {
-      setHowManyBingos(howManyBingos + 1) + setVar4(false)
-    } else if (checker(isClicked, allBingos[5]) === true && var5) {
-      setHowManyBingos(howManyBingos + 1) + setVar5(false)
-    } else if (checker(isClicked, allBingos[6]) === true && var6) {
-      setHowManyBingos(howManyBingos + 1) + setVar6(false)
-    } else if (checker(isClicked, allBingos[7]) === true && var7) {
-      setHowManyBingos(howManyBingos + 1) + setVar7(false)
-    } else if (checker(isClicked, allBingos[8]) === true && var8) {
-      setHowManyBingos(howManyBingos + 1) + setVar8(false)
-    } else if (checker(isClicked, allBingos[9]) === true && var9) {
-      setHowManyBingos(howManyBingos + 1) + setVar9(false)
-    } else if (checker(isClicked, allBingos[10]) === true && var10) {
-      setHowManyBingos(howManyBingos + 1) + setVar10(false)
-    } else if (checker(isClicked, allBingos[11]) === true && var11) {
-      setHowManyBingos(howManyBingos + 1) + setVar11(false)
+    if (checker(isClicked, allBingos[0]) === true && allVar.var0) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var0: false })
+    } else if (checker(isClicked, allBingos[1]) === true && allVar.var1) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var1: false })
+    } else if (checker(isClicked, allBingos[2]) === true && allVar.var2) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var2: false })
+    } else if (checker(isClicked, allBingos[3]) === true && allVar.var3) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var3: false })
+    } else if (checker(isClicked, allBingos[4]) === true && allVar.var4) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var4: false })
+    } else if (checker(isClicked, allBingos[5]) === true && allVar.var5) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var5: false })
+    } else if (checker(isClicked, allBingos[6]) === true && allVar.var6) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var6: false })
+    } else if (checker(isClicked, allBingos[7]) === true && allVar.var7) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var7: false })
+    } else if (checker(isClicked, allBingos[8]) === true && allVar.var8) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var8: false })
+    } else if (checker(isClicked, allBingos[9]) === true && allVar.var9) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var9: false })
+    } else if (checker(isClicked, allBingos[10]) === true && allVar.var10) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var10: false })
+    } else if (checker(isClicked, allBingos[11]) === true && allVar.var11) {
+      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var11: false })
     }
   }, [isClicked])
 
@@ -89,8 +76,8 @@ export default function BingoComponent() {
 
   // useEffect(() => {
   //   for (let i = 0; i < allBingos.length; i++) {
-  //     if (checker(isClicked, allBingos[i]) === true && var2) {
-  //       setHowManyBingos(howManyBingos + 1) + setVar2(false)
+  //     if (checker(isClicked, allBingos[i]) === true && allVar.var0) {
+  //       setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var0: false })
   //     }
   //   }
   // }, [isClicked])
