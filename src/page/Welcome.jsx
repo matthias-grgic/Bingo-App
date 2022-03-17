@@ -18,4 +18,9 @@ const WelcomeSection = styled(Link)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+  }
 `

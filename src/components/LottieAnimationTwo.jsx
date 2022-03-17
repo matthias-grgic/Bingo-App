@@ -1,10 +1,8 @@
 import { useLottie } from 'lottie-react'
 
 const style = {
-  width: '150%',
-  height: '140%',
-  position: 'fixed',
-  opacity: 0.9,
+  width: '45%',
+  opacity: 0.8,
   zindex: -1,
 }
 

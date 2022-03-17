@@ -6,13 +6,14 @@ const GlobalStyle = createGlobalStyle`
   --secondary-txt-color: #919191;
   --border-seperator: #e4e4e4;
 }
-  * {
+
+* {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgb(255,255,255)
 }
+
 a {
   color: var(--main-txt-color);
         text-decoration: none;
