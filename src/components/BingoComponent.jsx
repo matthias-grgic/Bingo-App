@@ -72,18 +72,18 @@ export default function BingoComponent() {
     }
   }, [isClicked])
 
+  // Not working yet
   // Bingo Check - Iterate over all Bingo Wins and compare to currently clicked numbers
   // useEffect(() => {
   //   for (let i = 0; i < allBingos.length; i++) {
   //     const createVar = Boolean(`allVar.var${i}`)
-  //     const setVars = () => setAllVar({ ...allVar, createVar: false })
+  //     const createOne = `var${i}`
   //     if (checker(isClicked, allBingos[i]) === true && createVar) {
-  //       setHowManyBingos(howManyBingos + 1) + setVars()
+  //       setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, [createOne]: false })
   //     }
   //   }
   // }, [isClicked])
 
-  // console.log(allVar)
   return (
     <>
       <Container>
