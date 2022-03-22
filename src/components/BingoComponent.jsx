@@ -7,7 +7,7 @@ import ButtonReseter from '../components/ButtonReset'
 
 export default function BingoComponent() {
   const [howManyBingos, setHowManyBingos] = useState(0)
-  const [isClicked, setIsClicked] = useState([12])
+  const [isClicked, setIsClicked] = useState([4])
 
   //all Bingo Wins
   const allBingos = [
