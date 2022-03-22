@@ -18,7 +18,7 @@ const WelcomeSection = styled(Link)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  width: 100%;
   &:hover {
     transform: scale(1.1);
     transition: 0.3s ease;

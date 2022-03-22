@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { shuffledArray } from '../lib/statements'
 import { useState, useEffect } from 'react'
 import LottieAnimation from '../components/LottieAnimation'
+import LottieAnimationTwo from '../components/LottieAnimationTwo'
 import ButtonReseter from '../components/ButtonReset'
 
 export default function BingoComponent() {
@@ -10,22 +11,21 @@ export default function BingoComponent() {
 
   //all Bingo Wins
   const allBingos = [
-    [0, 1, 2, 3, 4],
-    [5, 6, 7, 8, 9],
-    [10, 11, 12, 13, 14],
-    [15, 16, 17, 18, 19],
-    [20, 21, 22, 23, 24],
-    [0, 5, 10, 15, 20],
-    [1, 6, 11, 16, 21],
-    [2, 7, 12, 17, 22],
-    [3, 8, 13, 18, 23],
-    [4, 9, 14, 19, 24],
-    [0, 6, 12, 18, 24],
-    [4, 8, 12, 16, 20],
+    //Horizontal
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    //Vertical
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    //Across
+    [0, 4, 8],
+    [2, 4, 6],
   ]
 
   //let the loop run only once if bingo is achieved
-  const [allVar, setAllVar] = useState({ var0: true, var1: true, var2: true, var3: true, var4: true, var5: true, var6: true, var7: true, var8: true, var9: true, var10: true, var11: true })
+  const [allVar, setAllVar] = useState({ var0: true, var1: true, var2: true, var3: true, var4: true, var5: true, var6: true, var7: true })
 
   //check for doubles in array and add ID
   const handleClick = (id) => {
@@ -61,64 +61,31 @@ export default function BingoComponent() {
       setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var6: false })
     } else if (checker(isClicked, allBingos[7]) === true && allVar.var7) {
       setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var7: false })
-    } else if (checker(isClicked, allBingos[8]) === true && allVar.var8) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var8: false })
-    } else if (checker(isClicked, allBingos[9]) === true && allVar.var9) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var9: false })
-    } else if (checker(isClicked, allBingos[10]) === true && allVar.var10) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var10: false })
-    } else if (checker(isClicked, allBingos[11]) === true && allVar.var11) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var11: false })
     }
   }, [isClicked])
 
-  // Not working yet
   // Bingo Check - Iterate over all Bingo Wins and compare to currently clicked numbers
   // useEffect(() => {
   //   for (let i = 0; i < allBingos.length; i++) {
   //     const createVar = Boolean(`allVar.var${i}`)
-  //     const createOne = `var${i}`
   //     if (checker(isClicked, allBingos[i]) === true && createVar) {
-  //       setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, [createOne]: false })
+  //       setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, [`var${i}`]: false })
   //     }
   //   }
   // }, [isClicked])
-
-  return (
+  // console.log(allVar)
+  // console.log(allVar)
+  //assets2.lottiefiles.com/packages/lf20_ppL5oX.json
+  https: return (
     <>
+      <LottieAnimationTwo />
       <Container>
         {shuffledArray.map((item, index, arr) => {
-          if (arr.length - 1 === index) {
-            return (
-              <Item style={{ borderBottomRightRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
-                {item.statement}
-              </Item>
-            )
-          } else if (arr.length - 5 === index) {
-            return (
-              <Item style={{ borderBottomLeftRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
-                {item.statement}
-              </Item>
-            )
-          } else if (arr.length - 25 === index) {
-            return (
-              <Item style={{ borderTopLeftRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
-                {item.statement}
-              </Item>
-            )
-          } else if (arr.length - 21 === index) {
-            return (
-              <Item style={{ borderTopRightRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
-                {item.statement}
-              </Item>
-            )
-          } else {
-            return (
-              <Item bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
-                {item.statement}
-              </Item>
-            )
-          }
+          return (
+            <Item bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
+              {item.statement}
+            </Item>
+          )
         })}
       </Container>
       <LottieContainer status={howManyBingos} onClick={() => setHowManyBingos(howManyBingos - 1)}>
@@ -133,13 +100,14 @@ const Container = styled.section`
   display: grid;
   background-color: transparent;
   align-content: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   height: 70vh;
   justify-content: center;
   margin: 15px 0 15px 0;
   padding: 10px;
   width: 100vw;
+  z-index: 1;
   @media (min-width: 1400px) {
     padding: 0 15rem 0 15rem;
   }
@@ -148,15 +116,16 @@ const Container = styled.section`
 const Item = styled.div`
   display: flex;
   align-items: center;
-  background: ${(props) => (props.bg === 'green' ? 'transparent' : '#ffffff')};
+  background: ${(props) => (props.bg === 'green' ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.8)')};
   color: var(--main-txt-color);
   cursor: pointer;
   border: 1px solid rgb(167, 167, 167, 0.2);
-  font-size: clamp(0.7rem, 1.5vw, 1.2rem);
+  font-size: clamp(1rem, 1.5vw, 2rem);
+  font-weight: 500;
   justify-content: center;
   text-align: center;
   :hover {
-    background: transparent;
+    background: rgb(230, 230, 250, 0.5);
   }
 `
 
@@ -168,4 +137,5 @@ const LottieContainer = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
+  z-index: 1;
 `

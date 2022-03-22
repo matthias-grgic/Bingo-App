@@ -1,34 +1,8 @@
-const partOne = [
-  { statement: 'Klimapolitik muss harte Bretter bohren' },
-  { statement: 'Sehen Klimaschützer das Glas eher voll als leer' },
-  { statement: 'Das heißt aber nicht, dass "Paris" unwichtig wäre' },
-  { statement: 'Die eigentliche Arbeit hat jetzt erst begonnen' },
-  { statement: 'Muss ein klarer Fahrplant entwickelt werden' },
-  { statement: 'Bricht eine Lanze für den Klimaschutz' },
-  { statement: 'Ein Signal für den Klimaschutz' },
-  { statement: 'Die Zukunft Menschheit steht auf dem Spiel' },
-  { statement: 'Die Zeit drängt' },
-  { statement: 'Wenn wir jetzt nicht handeln, ist es zu spät' },
-  { statement: 'Das Weltklima, das aus den Fugen geraten ist' },
-  { statement: 'Die Unwetter sind nur ein Vorgeschmack' },
-]
+const partOne = [{ statement: 'Delta' }, { statement: 'Omicron BA.1' }, { statement: 'Gamma' }, { statement: 'Epsilon' }]
 
-const partTwo = [
-  { statement: 'Die schlimmsten Folgen können wir noch verhindern' },
-  { statement: 'Unser Klima ist unsere Zukunft' },
-  { statement: 'Jetzt muss gehandelt werden' },
-  { statement: 'Dass zum Verhandeln das Handeln kommt' },
-  { statement: 'Die Konferenz in Bonn soll die Weichen stellen' },
-  { statement: 'Dabei steckt der Teufel im Detail' },
-  { statement: 'Angekommen in den Mühen der Ebene' },
-  { statement: 'Die Lage ist ernst, aber nicht ohne Hoffnung' },
-  { statement: 'Wir gehenernsten Veränderungen unseres Planeten entgegen' },
-  { statement: 'Ein Weiter-So gibt es nicht' },
-  { statement: 'Toll, dass sich die Jugend so für den Klimaschutz einsetzt' },
-  { statement: 'CO2-Kompensation fürs Fliegen' },
-]
+const partTwo = [{ statement: 'Alpha' }, { statement: 'Omicron BA.2' }, { statement: 'Eta' }, { statement: 'Beta' }]
 
-const bingoStatement = [{ id: '13', statement: 'BINGO' }]
+const bingoStatement = [{ statement: 'BINGO' }]
 const shuffledOne = partOne.slice().sort((a, b) => 0.5 - Math.random())
 const shuffledTwo = partTwo.slice().sort((a, b) => 0.5 - Math.random())
 

@@ -1,14 +1,14 @@
 import { useLottie } from 'lottie-react'
 
 const style = {
-  opacity: 0.8,
+  opacity: 1,
   width: '100%',
   height: '100%',
 }
 
 const LottieAnimation = () => {
   const options = {
-    path: 'https://assets4.lottiefiles.com/private_files/lf30_2cu1eh3s.json',
+    path: 'https://assets2.lottiefiles.com/packages/lf20_ppL5oX.json',
     loop: true,
     autoplay: true,
   }

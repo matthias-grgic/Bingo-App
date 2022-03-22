@@ -21,7 +21,7 @@ export default App
 
 const MainStyled = styled.main`
   display: flex;
-  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
   align-items: center;
   flex-direction: column;
   justify-content: center;

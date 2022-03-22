@@ -20,6 +20,7 @@ const ButtonResetStyled = styled.button`
   touch-action: manipulation;
   transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s, transform 0.1s;
   user-select: none;
+  z-index: 1;
 
   :focus-visible {
     box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.2) 0 0 0 4px;
