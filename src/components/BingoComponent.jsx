@@ -5,8 +5,9 @@ import LottieAnimation from '../components/LottieAnimation'
 import ButtonReseter from '../components/ButtonReset'
 
 export default function BingoComponent() {
-  const [howManyBingos, setHowManyBingos] = useState(0)
+  const [howManyBingos, setHowManyBingos] = useState(false)
   const [isClicked, setIsClicked] = useState([12])
+  const [bingoStatements, setBingoStatements] = useState(shuffledArray)
 
   //all Bingo Wins
   const allBingos = [
@@ -34,23 +35,23 @@ export default function BingoComponent() {
 
   //Reset Button
   const resetVariables = () => setAllVar({ ...Object.keys(allVar).reduce((reduced, key) => ({ ...reduced, [key]: true }), {}) })
-  const handleReset = () => setIsClicked([12]) + resetVariables()
+  const handleReset = () => setIsClicked([12]) + resetVariables() + setBingoStatements(shuffledArray)
 
   //change color if clicked
   const styleIfClicked = (id) => {
     if (isClicked.includes(id)) return 'green'
   }
 
-  //check if Bingo is achieved
+  //Check if Bingo is achieved
   const checker = (arr, target) => target.every((item) => arr.includes(item))
 
-  // Bingo Check - Iterate over all Bingo Wins and compare to currently clicked numbers
+  //Iterate over all Bingo Wins and compare to currently clicked numbers
   useEffect(() => {
     for (let i = 0; i < allBingos.length; i++) {
       let keys = Object.keys(allVar)
       for (let j = 0; j < keys.length; j++) {
         if (checker(isClicked, allBingos[i]) === true && allVar[keys[i]]) {
-          setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, [keys[i]]: false })
+          setHowManyBingos(true) + setAllVar({ ...allVar, [keys[i]]: false })
         }
       }
     }
@@ -59,7 +60,7 @@ export default function BingoComponent() {
   return (
     <>
       <Container>
-        {shuffledArray.map((item, index, arr) => {
+        {bingoStatements.map((item, index, arr) => {
           if (arr.length - 1 === index) {
             return (
               <Item style={{ borderBottomRightRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
@@ -93,7 +94,7 @@ export default function BingoComponent() {
           }
         })}
       </Container>
-      <LottieContainer status={howManyBingos} onClick={() => setHowManyBingos(howManyBingos - 1)}>
+      <LottieContainer status={howManyBingos} onClick={() => setHowManyBingos(false)}>
         <LottieAnimation />
       </LottieContainer>
       <ButtonReseter handleClick={handleReset} buttonName={'RESET'} />
@@ -103,8 +104,8 @@ export default function BingoComponent() {
 
 const Container = styled.section`
   display: grid;
-  background-color: transparent;
   align-content: center;
+  background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   height: 70vh;
@@ -121,9 +122,9 @@ const Item = styled.div`
   display: flex;
   align-items: center;
   background: ${(props) => (props.bg === 'green' ? 'transparent' : '#ffffff')};
+  border: 1px solid rgb(167, 167, 167, 0.2);
   color: var(--main-txt-color);
   cursor: pointer;
-  border: 1px solid rgb(167, 167, 167, 0.2);
   font-size: clamp(0.7rem, 1.5vw, 1.2rem);
   justify-content: center;
   text-align: center;
