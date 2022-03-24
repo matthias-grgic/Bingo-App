@@ -9,7 +9,6 @@ export default function BingoComponent() {
   const [isClicked, setIsClicked] = useState([12])
   const [bingoStatements, setBingoStatements] = useState(shuffledArray)
 
-  //all Bingo Wins
   const allBingos = [
     [0, 1, 2, 3, 4],
     [5, 6, 7, 8, 9],
@@ -35,7 +34,7 @@ export default function BingoComponent() {
 
   //Reset Button
   const resetVariables = () => setAllVar({ ...Object.keys(allVar).reduce((reduced, key) => ({ ...reduced, [key]: true }), {}) })
-  const handleReset = () => setIsClicked([12]) + resetVariables() + setBingoStatements(shuffledArray)
+  const handleReset = () => setIsClicked([12]) + resetVariables()
 
   //change color if clicked
   const styleIfClicked = (id) => {
@@ -49,10 +48,8 @@ export default function BingoComponent() {
   useEffect(() => {
     for (let i = 0; i < allBingos.length; i++) {
       let keys = Object.keys(allVar)
-      for (let j = 0; j < keys.length; j++) {
-        if (checker(isClicked, allBingos[i]) === true && allVar[keys[i]]) {
-          setHowManyBingos(true) + setAllVar({ ...allVar, [keys[i]]: false })
-        }
+      if (checker(isClicked, allBingos[i]) === true && allVar[keys[i]]) {
+        setHowManyBingos(true) + setAllVar({ ...allVar, [keys[i]]: false })
       }
     }
   }, [isClicked])
