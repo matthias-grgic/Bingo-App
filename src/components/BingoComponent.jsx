@@ -44,45 +44,17 @@ export default function BingoComponent() {
   //check if Bingo is achieved
   const checker = (arr, target) => target.every((item) => arr.includes(item))
 
+  // Bingo Check - Iterate over all Bingo Wins and compare to currently clicked numbers
   useEffect(() => {
-    if (checker(isClicked, allBingos[0]) === true && allVar.var0) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var0: false })
-    } else if (checker(isClicked, allBingos[1]) === true && allVar.var1) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var1: false })
-    } else if (checker(isClicked, allBingos[2]) === true && allVar.var2) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var2: false })
-    } else if (checker(isClicked, allBingos[3]) === true && allVar.var3) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var3: false })
-    } else if (checker(isClicked, allBingos[4]) === true && allVar.var4) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var4: false })
-    } else if (checker(isClicked, allBingos[5]) === true && allVar.var5) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var5: false })
-    } else if (checker(isClicked, allBingos[6]) === true && allVar.var6) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var6: false })
-    } else if (checker(isClicked, allBingos[7]) === true && allVar.var7) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var7: false })
-    } else if (checker(isClicked, allBingos[8]) === true && allVar.var8) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var8: false })
-    } else if (checker(isClicked, allBingos[9]) === true && allVar.var9) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var9: false })
-    } else if (checker(isClicked, allBingos[10]) === true && allVar.var10) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var10: false })
-    } else if (checker(isClicked, allBingos[11]) === true && allVar.var11) {
-      setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, var11: false })
+    for (let i = 0; i < allBingos.length; i++) {
+      let keys = Object.keys(allVar)
+      for (let j = 0; j < keys.length; j++) {
+        if (checker(isClicked, allBingos[i]) === true && allVar[keys[i]]) {
+          setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, [keys[i]]: false })
+        }
+      }
     }
   }, [isClicked])
-
-  // Not working yet
-  // Bingo Check - Iterate over all Bingo Wins and compare to currently clicked numbers
-  // useEffect(() => {
-  //   for (let i = 0; i < allBingos.length; i++) {
-  //     const createVar = Boolean(`allVar.var${i}`)
-  //     const createOne = `var${i}`
-  //     if (checker(isClicked, allBingos[i]) === true && createVar) {
-  //       setHowManyBingos(howManyBingos + 1) + setAllVar({ ...allVar, [createOne]: false })
-  //     }
-  //   }
-  // }, [isClicked])
 
   return (
     <>
