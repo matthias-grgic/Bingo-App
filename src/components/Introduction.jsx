@@ -2,12 +2,10 @@ import styled from 'styled-components'
 
 export default function Introduction() {
   return (
-    <>
-      <TextStyled>
-        {`Passend zu jeder Weltklimakonferenz könnt ihr hier die populärsten Aussagen der TeilnehmerInnen schon vorweg durch spielen - im Phrasenbingo Klima Edition.
+    <TextStyled>
+      {`Passend zu jeder Weltklimakonferenz könnt ihr hier die populärsten Aussagen der TeilnehmerInnen schon vorweg durch spielen - im Phrasenbingo Klima Edition.
         `}
-      </TextStyled>
-    </>
+    </TextStyled>
   )
 }
 

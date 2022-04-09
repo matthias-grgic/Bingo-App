@@ -2,11 +2,9 @@ import styled from 'styled-components'
 
 export default function Hello() {
   return (
-    <>
-      <StyledLink>
-        <h1>BINGO!</h1>
-      </StyledLink>
-    </>
+    <StyledLink>
+      <h1>BINGO!</h1>
+    </StyledLink>
   )
 }
 

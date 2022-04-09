@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { shuffledArray } from '../lib/statements'
 import { useState, useEffect } from 'react'
-import LottieAnimation from '../components/LottieAnimation'
-import ButtonReseter from '../components/ButtonReset'
+import { shuffledArray } from '../lib/statements'
+import LottieAnimation from './LottieAnimation'
+import ButtonReseter from './ButtonReset'
 
 export default function BingoComponent() {
   const [howManyBingos, setHowManyBingos] = useState(false)
@@ -24,30 +24,43 @@ export default function BingoComponent() {
     [4, 8, 12, 16, 20],
   ]
 
-  //let the loop run only once if bingo is achieved
-  const [allVar, setAllVar] = useState({ var0: true, var1: true, var2: true, var3: true, var4: true, var5: true, var6: true, var7: true, var8: true, var9: true, var10: true, var11: true })
+  // let the loop run only once if bingo is achieved
+  const [allVar, setAllVar] = useState({
+    var0: true,
+    var1: true,
+    var2: true,
+    var3: true,
+    var4: true,
+    var5: true,
+    var6: true,
+    var7: true,
+    var8: true,
+    var9: true,
+    var10: true,
+    var11: true,
+  })
 
-  //check for doubles in array and add ID
+  // Add and check for doubles
   const handleClick = (id) => {
     if (!isClicked.includes(id)) setIsClicked([...isClicked, id])
   }
 
-  //Reset Button
+  // Reset Button
   const resetVariables = () => setAllVar({ ...Object.keys(allVar).reduce((reduced, key) => ({ ...reduced, [key]: true }), {}) })
   const handleReset = () => setIsClicked([12]) + resetVariables()
 
-  //change color if clicked
+  // Change color if clicked
   const styleIfClicked = (id) => {
     if (isClicked.includes(id)) return 'green'
   }
 
-  //Check if Bingo is achieved
+  // Check if Bingo
   const checker = (arr, target) => target.every((item) => arr.includes(item))
 
-  //Iterate over all Bingo Wins and compare to currently clicked numbers
+  // Iterate over all Bingo Wins and compare to currently clicked numbers
   useEffect(() => {
     for (let i = 0; i < allBingos.length; i++) {
-      let keys = Object.keys(allVar)
+      const keys = Object.keys(allVar)
       if (checker(isClicked, allBingos[i]) === true && allVar[keys[i]]) {
         setHowManyBingos(true) + setAllVar({ ...allVar, [keys[i]]: false })
       }
@@ -64,37 +77,39 @@ export default function BingoComponent() {
                 {item.statement}
               </Item>
             )
-          } else if (arr.length - 5 === index) {
+          }
+          if (arr.length - 5 === index) {
             return (
               <Item style={{ borderBottomLeftRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
                 {item.statement}
               </Item>
             )
-          } else if (arr.length - 25 === index) {
+          }
+          if (arr.length - 25 === index) {
             return (
               <Item style={{ borderTopLeftRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
                 {item.statement}
               </Item>
             )
-          } else if (arr.length - 21 === index) {
+          }
+          if (arr.length - 21 === index) {
             return (
               <Item style={{ borderTopRightRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
                 {item.statement}
               </Item>
             )
-          } else {
-            return (
-              <Item bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
-                {item.statement}
-              </Item>
-            )
           }
+          return (
+            <Item bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
+              {item.statement}
+            </Item>
+          )
         })}
       </Container>
       <LottieContainer status={howManyBingos} onClick={() => setHowManyBingos(false)}>
         <LottieAnimation />
       </LottieContainer>
-      <ButtonReseter handleClick={handleReset} buttonName={'RESET'} />
+      <ButtonReseter handleClick={handleReset} buttonName='RESET' />
     </>
   )
 }
@@ -131,7 +146,7 @@ const Item = styled.div`
 `
 
 const LottieContainer = styled.div`
-  display: ${(props) => (props.status % 2 != 0 ? 'flex' : 'none')};
+  display: ${(props) => (props.status % 2 !== 0 ? 'flex' : 'none')};
   align-items: center;
   background-color: transparent;
   justify-content: center;

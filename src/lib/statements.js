@@ -29,7 +29,7 @@ const partTwo = [
 ]
 
 const bingoStatement = [{ id: '13', statement: 'BINGO' }]
-const shuffledOne = partOne.slice().sort((a, b) => 0.5 - Math.random())
-const shuffledTwo = partTwo.slice().sort((a, b) => 0.5 - Math.random())
+const shuffledOne = partOne.slice().sort(() => 0.5 - Math.random())
+const shuffledTwo = partTwo.slice().sort(() => 0.5 - Math.random())
 
 export const shuffledArray = [...shuffledOne, ...bingoStatement, ...shuffledTwo]

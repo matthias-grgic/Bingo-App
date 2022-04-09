@@ -1,17 +1,16 @@
 import styled from 'styled-components'
+import { Route, Routes } from 'react-router-dom'
 import Bingo from './page/Bingo'
 import Header from './components/Header'
 import Welcome from './page/Welcome'
-
-import { Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
     <MainStyled>
       <Header />
       <Routes>
-        <Route path='/' element={<Welcome />} />
-        <Route path='/bingo' element={<Bingo />} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/bingo" element={<Bingo />} />
       </Routes>
     </MainStyled>
   )
