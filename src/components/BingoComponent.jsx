@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import styled from 'styled-components'
 import { useState, useEffect } from 'react'
 import { shuffledArray } from '../lib/statements'
@@ -7,24 +8,7 @@ import ButtonReseter from './ButtonReset'
 export default function BingoComponent() {
   const [howManyBingos, setHowManyBingos] = useState(false)
   const [isClicked, setIsClicked] = useState([12])
-  const [bingoStatements, setBingoStatements] = useState(shuffledArray)
 
-  const allBingos = [
-    [0, 1, 2, 3, 4],
-    [5, 6, 7, 8, 9],
-    [10, 11, 12, 13, 14],
-    [15, 16, 17, 18, 19],
-    [20, 21, 22, 23, 24],
-    [0, 5, 10, 15, 20],
-    [1, 6, 11, 16, 21],
-    [2, 7, 12, 17, 22],
-    [3, 8, 13, 18, 23],
-    [4, 9, 14, 19, 24],
-    [0, 6, 12, 18, 24],
-    [4, 8, 12, 16, 20],
-  ]
-
-  // let the loop run only once if bingo is achieved
   const [allVar, setAllVar] = useState({
     var0: true,
     var1: true,
@@ -51,7 +35,10 @@ export default function BingoComponent() {
 
   // Change color if clicked
   const styleIfClicked = (id) => {
-    if (isClicked.includes(id)) return 'green'
+    if (isClicked.includes(id)) {
+      return 'clicked'
+    }
+    return 'notclicked'
   }
 
   // Check if Bingo
@@ -59,18 +46,33 @@ export default function BingoComponent() {
 
   // Iterate over all Bingo Wins and compare to currently clicked numbers
   useEffect(() => {
+    const allBingos = [
+      [0, 1, 2, 3, 4],
+      [5, 6, 7, 8, 9],
+      [10, 11, 12, 13, 14],
+      [15, 16, 17, 18, 19],
+      [20, 21, 22, 23, 24],
+      [0, 5, 10, 15, 20],
+      [1, 6, 11, 16, 21],
+      [2, 7, 12, 17, 22],
+      [3, 8, 13, 18, 23],
+      [4, 9, 14, 19, 24],
+      [0, 6, 12, 18, 24],
+      [4, 8, 12, 16, 20],
+    ]
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < allBingos.length; i++) {
       const keys = Object.keys(allVar)
       if (checker(isClicked, allBingos[i]) === true && allVar[keys[i]]) {
         setHowManyBingos(true) + setAllVar({ ...allVar, [keys[i]]: false })
       }
     }
-  }, [isClicked])
+  }, [allVar, isClicked])
 
   return (
     <>
       <Container>
-        {bingoStatements.map((item, index, arr) => {
+        {shuffledArray.map((item, index, arr) => {
           if (arr.length - 1 === index) {
             return (
               <Item style={{ borderBottomRightRadius: '15px' }} bg={styleIfClicked(index)} id={index} key={index} onClick={() => handleClick(index)}>
@@ -133,7 +135,7 @@ const Container = styled.section`
 const Item = styled.div`
   display: flex;
   align-items: center;
-  background: ${(props) => (props.bg === 'green' ? 'transparent' : '#ffffff')};
+  background: ${(props) => (props.bg === 'clicked' ? 'transparent' : '#ffffff')};
   border: 1px solid rgb(167, 167, 167, 0.2);
   color: var(--main-txt-color);
   cursor: pointer;
